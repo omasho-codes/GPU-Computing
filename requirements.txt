@@ -1,0 +1,8 @@
+# Host-side Python deps for the benchmark harness.
+# No GPU-bound Python packages here: all GPU work happens inside the .cu
+# binaries. nvcc + a CUDA 12.x driver are the real prerequisites.
+
+numpy>=1.26.0
+matplotlib>=3.8.0
+pyyaml>=6.0.1
+tqdm>=4.66.0

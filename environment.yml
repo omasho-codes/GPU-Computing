@@ -1,0 +1,10 @@
+name: gpu-computing
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy>=1.26
+  - matplotlib>=3.8
+  - pyyaml>=6.0
+  - tqdm>=4.66

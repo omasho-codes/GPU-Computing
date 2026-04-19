@@ -1,0 +1,50 @@
+# Build artifacts
+bin/
+build/
+*.o
+*.obj
+*.exe
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+dist/
+*.egg-info/
+*.egg
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Benchmark outputs (regenerated)
+benchmarks/*.md
+benchmarks/*.json
+benchmarks/*.png
+
+# Profiling traces
+*.nvprof
+*.ncu-rep
+*.nsys-rep
+*.qdrep
+*.sqlite
+
+# System
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Caches
+.ruff_cache/
+.mypy_cache/

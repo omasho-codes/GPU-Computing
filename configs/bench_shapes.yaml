@@ -1,0 +1,59 @@
+# Shape sweeps for scripts/bench_kernels.py. Each entry names a binary under
+# bin/{cuda,cpu}/ and a list of argv sweeps to exercise it.
+
+vector_add:
+  backends: [cuda, cpu]
+  binaries:
+    cuda: bin/cuda/vector_add
+    cpu:  bin/cpu/vector_add_cpu
+  sweeps:
+    - { n: 65536,    iters: 50, warmup: 5 }
+    - { n: 1048576,  iters: 50, warmup: 5 }
+    - { n: 16777216, iters: 30, warmup: 3 }
+
+naive_matmul:
+  backends: [cuda, cpu]
+  binaries:
+    cuda: bin/cuda/naive_matmul
+    cpu:  bin/cpu/matmul_cpu
+  sweeps:
+    - { n: 256,  iters: 10, warmup: 2 }
+    - { n: 512,  iters: 10, warmup: 2 }
+    - { n: 1024, iters: 5,  warmup: 1 }
+
+tiled_matmul:
+  backends: [cuda]
+  binaries:
+    cuda: bin/cuda/tiled_matmul
+  sweeps:
+    - { n: 256,  iters: 20, warmup: 3 }
+    - { n: 512,  iters: 20, warmup: 3 }
+    - { n: 1024, iters: 10, warmup: 2 }
+    - { n: 2048, iters: 5,  warmup: 2 }
+
+sum_reduction:
+  backends: [cuda, cpu]
+  binaries:
+    cuda: bin/cuda/sum_reduction
+    cpu:  bin/cpu/sum_reduction_cpu
+  sweeps:
+    - { n: 1048576,  iters: 50, warmup: 5 }
+    - { n: 16777216, iters: 30, warmup: 3 }
+
+kahan_sum:
+  backends: [cuda]
+  binaries:
+    cuda: bin/cuda/kahan_sum
+  sweeps:
+    - { n: 1048576,  iters: 50, warmup: 5 }
+    - { n: 16777216, iters: 30, warmup: 3 }
+
+avg_image_blur:
+  backends: [cuda, cpu]
+  binaries:
+    cuda: bin/cuda/avg_image_blur
+    cpu:  bin/cpu/avg_image_blur_cpu
+  sweeps:
+    - { n: 512,  p: 5, iters: 20, warmup: 3 }
+    - { n: 1024, p: 5, iters: 20, warmup: 3 }
+    - { n: 2048, p: 5, iters: 10, warmup: 2 }
